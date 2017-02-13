@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1198DE1E640A5800F1A3EC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1198DD1E640A5800F1A3EC /* MenuScene.swift */; };
 		3FB492F51E5EFD4C0009FC51 /* John Gold - Vampire's Kiss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB492F41E5EFD4C0009FC51 /* John Gold - Vampire's Kiss.mp3 */; };
 		78D63E2E1D0FCDA300C53875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D63E2D1D0FCDA300C53875 /* AppDelegate.swift */; };
 		78D63E301D0FCDA300C53875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D63E2F1D0FCDA300C53875 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F1198DD1E640A5800F1A3EC /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		3FB492F41E5EFD4C0009FC51 /* John Gold - Vampire's Kiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "John Gold - Vampire's Kiss.mp3"; sourceTree = "<group>"; };
 		78D63E2A1D0FCDA300C53875 /* MicrophoneAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MicrophoneAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D63E2D1D0FCDA300C53875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				78D63E361D0FCDA300C53875 /* Info.plist */,
 				C446B4091D455764000AEFCA /* AudioKit.framework */,
 				81A3673C1E017ABE0035179C /* Scene.swift */,
+				3F1198DD1E640A5800F1A3EC /* MenuScene.swift */,
 				811FFE141E082A9D0039D689 /* beat.wav */,
 				3FB492F41E5EFD4C0009FC51 /* John Gold - Vampire's Kiss.mp3 */,
 			);
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78D63E301D0FCDA300C53875 /* ViewController.swift in Sources */,
+				3F1198DE1E640A5800F1A3EC /* MenuScene.swift in Sources */,
 				78D63E2E1D0FCDA300C53875 /* AppDelegate.swift in Sources */,
 				81A3673D1E017ABE0035179C /* Scene.swift in Sources */,
 			);

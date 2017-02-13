@@ -16,16 +16,29 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         // Create the game scene
-        let scene = Scene(size: CGSize(width: 440, height: 200))
+        let menu = MenuScene(size: CGSize(width: 1280, height: 720))
         
         // Configure and present the scene
-        let skView = SKView(frame: NSRect(origin: CGPoint(x: 20, y: 11), size: CGSize(width: 440, height: 200)))
+        let skView = SKView(frame: NSRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 1280, height: 720)))
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
         view.addSubview(skView)
-        scene.scaleMode = .aspectFit
-        skView.presentScene(scene)
+        menu.scaleMode = .aspectFit
+        skView.presentScene(menu)
+        
+        
+//        // Create the game scene
+//        let scene = Scene(size: CGSize(width: 440, height: 200))
+//        
+//        // Configure and present the scene
+//        let skView = SKView(frame: NSRect(origin: CGPoint(x: 20, y: 11), size: CGSize(width: 440, height: 200)))
+//        skView.showsFPS = true
+//        skView.showsNodeCount = true
+//        skView.ignoresSiblingOrder = true
+//        view.addSubview(skView)
+//        scene.scaleMode = .aspectFit
+//        skView.presentScene(scene)
     }
     
     override func viewDidAppear() {
