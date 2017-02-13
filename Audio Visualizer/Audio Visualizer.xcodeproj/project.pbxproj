@@ -13,6 +13,12 @@
 		3F47240D1E51F7BE0013A205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F47240B1E51F7BE0013A205 /* Main.storyboard */; };
 		3F4724181E51F7C30013A205 /* Audio_VisualizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4724171E51F7C30013A205 /* Audio_VisualizerTests.swift */; };
 		3F4724241E51F9330013A205 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 3F4724231E51F9330013A205 /* README.md */; };
+		3F47242A1E523CC50013A205 /* SoftwareISPDragandDrop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724251E523CC50013A205 /* SoftwareISPDragandDrop.jpg */; };
+		3F47242B1E523CC50013A205 /* SoftwareISPPhoto2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724261E523CC50013A205 /* SoftwareISPPhoto2.jpeg */; };
+		3F47242C1E523CC50013A205 /* SoftwareISPMandelbrot.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724271E523CC50013A205 /* SoftwareISPMandelbrot.jpeg */; };
+		3F47242D1E523CC50013A205 /* SoftwareISPJulia.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724281E523CC50013A205 /* SoftwareISPJulia.jpeg */; };
+		3F47242E1E523CC50013A205 /* SoftwareISPLibrary.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724291E523CC50013A205 /* SoftwareISPLibrary.jpg */; };
+		3F4724301E523CD80013A205 /* SoftwareISPPhoto1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F47242F1E523CD80013A205 /* SoftwareISPPhoto1.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 		3F4724171E51F7C30013A205 /* Audio_VisualizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio_VisualizerTests.swift; sourceTree = "<group>"; };
 		3F4724191E51F7C30013A205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4724231E51F9330013A205 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3F4724251E523CC50013A205 /* SoftwareISPDragandDrop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPDragandDrop.jpg; sourceTree = "<group>"; };
+		3F4724261E523CC50013A205 /* SoftwareISPPhoto2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPPhoto2.jpeg; sourceTree = "<group>"; };
+		3F4724271E523CC50013A205 /* SoftwareISPMandelbrot.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPMandelbrot.jpeg; sourceTree = "<group>"; };
+		3F4724281E523CC50013A205 /* SoftwareISPJulia.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPJulia.jpeg; sourceTree = "<group>"; };
+		3F4724291E523CC50013A205 /* SoftwareISPLibrary.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPLibrary.jpg; sourceTree = "<group>"; };
+		3F47242F1E523CD80013A205 /* SoftwareISPPhoto1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPPhoto1.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,12 @@
 		3F4724221E51F8220013A205 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				3F47242F1E523CD80013A205 /* SoftwareISPPhoto1.jpeg */,
+				3F4724251E523CC50013A205 /* SoftwareISPDragandDrop.jpg */,
+				3F4724261E523CC50013A205 /* SoftwareISPPhoto2.jpeg */,
+				3F4724271E523CC50013A205 /* SoftwareISPMandelbrot.jpeg */,
+				3F4724281E523CC50013A205 /* SoftwareISPJulia.jpeg */,
+				3F4724291E523CC50013A205 /* SoftwareISPLibrary.jpg */,
 				3F4724231E51F9330013A205 /* README.md */,
 			);
 			name = Documentation;
@@ -190,7 +208,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F47240A1E51F7BC0013A205 /* Assets.xcassets in Resources */,
+				3F47242D1E523CC50013A205 /* SoftwareISPJulia.jpeg in Resources */,
+				3F47242B1E523CC50013A205 /* SoftwareISPPhoto2.jpeg in Resources */,
 				3F47240D1E51F7BE0013A205 /* Main.storyboard in Resources */,
+				3F4724301E523CD80013A205 /* SoftwareISPPhoto1.jpeg in Resources */,
+				3F47242E1E523CC50013A205 /* SoftwareISPLibrary.jpg in Resources */,
+				3F47242A1E523CC50013A205 /* SoftwareISPDragandDrop.jpg in Resources */,
+				3F47242C1E523CC50013A205 /* SoftwareISPMandelbrot.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
