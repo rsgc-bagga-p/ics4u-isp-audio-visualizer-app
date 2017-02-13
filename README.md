@@ -72,8 +72,6 @@ My biggest challenge in completing this ISP will be to manage my time. I have ma
 
  1. When the app is first launched the it will ask the user if they want to analyze the music live through the microphone or through their music library (pre-chosen songs).
  
- 
-
  2. Then it would ask if they want to use the Mandelbrot or Julia (maybe another pattern set) to display the audio analysis with. 
 
  3. The program would then, depending on the user's choices display the audio analysis using different patterns and such. The frequencies would affect the colours and the zoom speed would be affected by the amplitude. Furthermore, there are things I do not know about these sets and I could possibly affect other parts of the set with these audio analysis values.
