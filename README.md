@@ -63,11 +63,18 @@ This project will be very tough because this is the first time I will be working
 
 ### Identify what you think your biggest challenge for successfully completing this ISP will be.
 
-Replace this with your paragraph(s).
+My biggest challenge in completing this ISP will be to manage my time. I have many extra curricular activities and projects in this week that I will need to manage my time effectively to complete this project. I will be able to do this by completing time based goals set by myself. By doing this I can get my project completed without stressing or completing it the night before. 
+
 
 ### Make storyboards to indicate the user interface and/or functionality of your application.
 
 *In the section below, sketch out a plan for your application. This is where you will spend the majority of your time in completing the ISP proposal. Think through what you hope to create and as needed, adjust your responses to the questions above.*
 
-Replace this with your images and paragraphs.
+ 1. When the app is first launched the it will ask the user if they want to analyze the music live through the microphone or through their music library (pre-chosen songs).
+ 
+ 
+
+ 2. Then it would ask if they want to use the Mandelbrot or Julia (maybe another pattern set) to display the audio analysis with. 
+
+ 3. The program would then, depending on the user's choices display the audio analysis using different patterns and such. The frequencies would affect the colours and the zoom speed would be affected by the amplitude. Furthermore, there are things I do not know about these sets and I could possibly affect other parts of the set with these audio analysis values.
 
