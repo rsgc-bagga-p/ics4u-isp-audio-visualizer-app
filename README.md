@@ -55,11 +55,11 @@ With this project I expect to learn more about using audio analysis APIs, design
 
 *If you are writing a networked application, you might be using an API like Alamofire to simplify that part of the implementation. If you are writing an application that communicates over Bluetooth, you may be using the Core Bluetooth framework. Please list any expected dependencies for your project.*
 
-I will probably be using the standard MacOS APIs and AudioKit to analyze my music and display it visually.
+I will probably be using the standard MacOS APIs, AudioKit and a graphics API such as Metal or Sprite Kit to analyze my music and display it visually.
 
 ### Rate the personal difficulty level of this project.
 
-This project will be very tough because this is the first time I will be working with AudioKit and programming fractal patterns (which I have heard are pretty difficult) in Swift. The logic and data display will be the most challenging part of this project because I am least familiar with the mathematical algorithims needed for this project. I will also be using APIs that I have not used before so it will be fairly challenging to complete this project.
+This project will be very tough because this is the first time I will be working with AudioKit, Metal/Sprite Kit and programming fractal patterns (which I have heard are pretty difficult) in Swift. The logic and data display will be the most challenging part of this project because I am least familiar with the mathematical algorithims needed for this project. I will also be using APIs that I have not used before so it will be fairly challenging to complete this project.
 
 ### Identify what you think your biggest challenge for successfully completing this ISP will be.
 
