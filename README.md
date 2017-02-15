@@ -59,7 +59,7 @@ I will probably be using the standard MacOS APIs, AudioKit and a graphics API su
 
 ### Rate the personal difficulty level of this project.
 
-This project will be very tough because this is the first time I will be working with AudioKit, Metal/Sprite Kit and programming fractal patterns (which I have heard are pretty difficult) in Swift. The logic and data display will be the most challenging part of this project because I am least familiar with the mathematical algorithims needed for this project. I will also be using APIs that I have not used before so it will be fairly challenging to complete this project.
+This project will be very tough because this is the first time I will be working with AudioKit, Metal/Sprite Kit and programming fractal patterns (which I have heard are pretty difficult) in Swift. The logic and data display will be the most challenging part of this project because I am least familiar with the mathematical algorithms needed for this project. I will also be using APIs that I have not used before so it will be fairly challenging to complete this project.
 
 ### Identify what you think your biggest challenge for successfully completing this ISP will be.
 
