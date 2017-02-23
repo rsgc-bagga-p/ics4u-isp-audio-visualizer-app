@@ -710,7 +710,7 @@
                                 <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </box>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeZ-ME-wpm">
-                                <rect key="frame" x="185" y="117" width="111" height="32"/>
+                                <rect key="frame" x="185" y="117" width="111" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="RU8-g8-yaH"/>
                                     <constraint firstAttribute="height" constant="60" id="SpF-qD-1f0"/>
@@ -745,6 +745,17 @@
                     <view key="view" id="lhM-Cf-qeT">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQt-0h-sTc" customClass="AKOutputWaveformPlot" customModule="AudioKit">
+                                <rect key="frame" x="0.0" y="174" width="163" height="96"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NQt-0h-sTc" firstAttribute="leading" secondItem="lhM-Cf-qeT" secondAttribute="leading" id="D6p-yn-7xf"/>
+                            <constraint firstAttribute="trailing" secondItem="NQt-0h-sTc" secondAttribute="trailing" id="XSb-Qc-vta"/>
+                            <constraint firstAttribute="bottom" secondItem="NQt-0h-sTc" secondAttribute="bottom" id="vY6-WR-iZ7"/>
+                            <constraint firstItem="NQt-0h-sTc" firstAttribute="top" secondItem="lhM-Cf-qeT" secondAttribute="top" id="ynt-CN-fnq"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="J8w-vR-ySr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

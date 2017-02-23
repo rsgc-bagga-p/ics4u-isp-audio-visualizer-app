@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-//import AudioKit
+import AudioKit
 import SpriteKit
 
 class ViewController2: NSViewController {
