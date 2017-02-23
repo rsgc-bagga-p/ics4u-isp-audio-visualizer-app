@@ -719,6 +719,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="5Yb-pG-TlK" kind="sheet" id="yjq-zS-VHm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -740,13 +743,13 @@
             <objects>
                 <viewController id="5Yb-pG-TlK" customClass="ViewController2" customModule="Audio_Visualizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="lhM-Cf-qeT">
-                        <rect key="frame" x="0.0" y="0.0" width="1280" height="720"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="J8w-vR-ySr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="880"/>
+            <point key="canvasLocation" x="644" y="655"/>
         </scene>
     </scenes>
 </document>
