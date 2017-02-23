@@ -19,6 +19,7 @@
 		3F47242E1E523CC50013A205 /* SoftwareISPLibrary.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724291E523CC50013A205 /* SoftwareISPLibrary.jpg */; };
 		3F4724301E523CD80013A205 /* SoftwareISPPhoto1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F47242F1E523CD80013A205 /* SoftwareISPPhoto1.jpeg */; };
 		3F4724321E523EBB0013A205 /* SoftwareISPPhoto2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724311E523EBB0013A205 /* SoftwareISPPhoto2.jpeg */; };
+		3FB492EF1E5EEEBE0009FC51 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB492EE1E5EEEBE0009FC51 /* ViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		3F4724291E523CC50013A205 /* SoftwareISPLibrary.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPLibrary.jpg; sourceTree = "<group>"; };
 		3F47242F1E523CD80013A205 /* SoftwareISPPhoto1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPPhoto1.jpeg; sourceTree = "<group>"; };
 		3F4724311E523EBB0013A205 /* SoftwareISPPhoto2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPPhoto2.jpeg; sourceTree = "<group>"; };
+		3FB492EE1E5EEEBE0009FC51 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				3F4724071E51F7BA0013A205 /* ViewController.swift */,
 				3F4724091E51F7BC0013A205 /* Assets.xcassets */,
 				3F47240B1E51F7BE0013A205 /* Main.storyboard */,
+				3FB492EE1E5EEEBE0009FC51 /* ViewController2.swift */,
 				3F47240E1E51F7BF0013A205 /* Info.plist */,
 			);
 			path = "Audio Visualizer";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4724241E51F9330013A205 /* README.md in Sources */,
+				3FB492EF1E5EEEBE0009FC51 /* ViewController2.swift in Sources */,
 				3F4724081E51F7BB0013A205 /* ViewController.swift in Sources */,
 				3F4724061E51F7BA0013A205 /* AppDelegate.swift in Sources */,
 			);
@@ -364,8 +368,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DA5V7WRMG3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/AudioKit-iOS",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/AudioKit-macOS",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/AudioKit-tvOS",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-appletvos",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-appletvsimulator",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphoneos",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphonesimulator",
+				);
 				INFOPLIST_FILE = "Audio Visualizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphoneos/AudioKit.build/Objects-normal/arm64",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphoneos/AudioKit.build/Objects-normal/armv7",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphonesimulator/AudioKit.build/Objects-normal/i386",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphonesimulator/AudioKit.build/Objects-normal/x86_64",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.on.rsgc.Audio-Visualizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -378,8 +400,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DA5V7WRMG3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/AudioKit-iOS",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/AudioKit-macOS",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/AudioKit-tvOS",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-appletvos",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-appletvsimulator",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphoneos",
+					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphonesimulator",
+				);
 				INFOPLIST_FILE = "Audio Visualizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphoneos/AudioKit.build/Objects-normal/arm64",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphoneos/AudioKit.build/Objects-normal/armv7",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphonesimulator/AudioKit.build/Objects-normal/i386",
+					"$(PROJECT_DIR)/AudioKit-3.5/AudioKit/iOS/build/AudioKit\\ for\\ iOS.build/Release-iphonesimulator/AudioKit.build/Objects-normal/x86_64",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.on.rsgc.Audio-Visualizer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -437,6 +477,7 @@
 				3F47241E1E51F7C30013A205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F47241F1E51F7C30013A205 /* Build configuration list for PBXNativeTarget "Audio VisualizerTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +486,7 @@
 				3F4724211E51F7C30013A205 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
