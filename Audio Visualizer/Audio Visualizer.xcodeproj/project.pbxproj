@@ -21,6 +21,7 @@
 		3F4724321E523EBB0013A205 /* SoftwareISPPhoto2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3F4724311E523EBB0013A205 /* SoftwareISPPhoto2.jpeg */; };
 		3FB492EF1E5EEEBE0009FC51 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB492EE1E5EEEBE0009FC51 /* ViewController2.swift */; };
 		3FB492F11E5EFA130009FC51 /* John Gold - Vampire's Kiss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB492F01E5EFA130009FC51 /* John Gold - Vampire's Kiss.mp3 */; };
+		3FB492F31E5EFB840009FC51 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB492F21E5EFB840009FC51 /* AudioKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		3F4724311E523EBB0013A205 /* SoftwareISPPhoto2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SoftwareISPPhoto2.jpeg; sourceTree = "<group>"; };
 		3FB492EE1E5EEEBE0009FC51 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		3FB492F01E5EFA130009FC51 /* John Gold - Vampire's Kiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "John Gold - Vampire's Kiss.mp3"; sourceTree = "<group>"; };
+		3FB492F21E5EFB840009FC51 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB492F31E5EFB840009FC51 /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 				3F4724071E51F7BA0013A205 /* ViewController.swift */,
 				3F4724091E51F7BC0013A205 /* Assets.xcassets */,
 				3F47240B1E51F7BE0013A205 /* Main.storyboard */,
+				3FB492F21E5EFB840009FC51 /* AudioKit.framework */,
 				3FB492EE1E5EEEBE0009FC51 /* ViewController2.swift */,
 				3F47240E1E51F7BF0013A205 /* Info.plist */,
 				3FB492F01E5EFA130009FC51 /* John Gold - Vampire's Kiss.mp3 */,
@@ -382,6 +386,7 @@
 					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-appletvsimulator",
 					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphoneos",
 					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphonesimulator",
+					"$(PROJECT_DIR)/Audio\\ Visualizer",
 				);
 				INFOPLIST_FILE = "Audio Visualizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -414,6 +419,7 @@
 					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-appletvsimulator",
 					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphoneos",
 					"$(PROJECT_DIR)/AudioKit-3.5/Frameworks/build/Release-iphonesimulator",
+					"$(PROJECT_DIR)/Audio\\ Visualizer",
 				);
 				INFOPLIST_FILE = "Audio Visualizer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
