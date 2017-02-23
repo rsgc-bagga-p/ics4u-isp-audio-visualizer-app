@@ -16,6 +16,7 @@ class Scene : SKScene {
     var silence: AKBooster!
     var audioFile : AKAudioFile!
     var player : AKAudioPlayer!
+    var oscillator = AKOscillator()
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
@@ -59,25 +60,25 @@ class Scene : SKScene {
         labelFrequency.position = CGPoint(x: size.width / 2, y: size.height / 5 * 2)
         addChild(labelFrequency)
 
-        // Show the sharp notes
-        labelNoteSharps.text = "Note (Sharps): "
-        labelNoteSharps.fontColor = SKColor.white
-        labelNoteSharps.fontSize = 24
-        labelNoteSharps.zPosition = 150
-        labelNoteSharps.position = CGPoint(x: size.width / 2, y: size.height / 5 * 3)
-        addChild(labelNoteSharps)
-
-        // Show the flat notes
-        labelNoteFlats.text = "Note (Flats): "
-        labelNoteFlats.fontColor = SKColor.white
-        labelNoteFlats.fontSize = 24
-        labelNoteFlats.zPosition = 150
-        labelNoteFlats.position = CGPoint(x: size.width / 2, y: size.height / 5 * 4)
-        addChild(labelNoteFlats)
+//        // Show the sharp notes
+//        labelNoteSharps.text = "Note (Sharps): "
+//        labelNoteSharps.fontColor = SKColor.white
+//        labelNoteSharps.fontSize = 24
+//        labelNoteSharps.zPosition = 150
+//        labelNoteSharps.position = CGPoint(x: size.width / 2, y: size.height / 5 * 3)
+//        addChild(labelNoteSharps)
+//
+//        // Show the flat notes
+//        labelNoteFlats.text = "Note (Flats): "
+//        labelNoteFlats.fontColor = SKColor.white
+//        labelNoteFlats.fontSize = 24
+//        labelNoteFlats.zPosition = 150
+//        labelNoteFlats.position = CGPoint(x: size.width / 2, y: size.height / 5 * 4)
+//        addChild(labelNoteFlats)
         
         // Try to get a reference to the audio file
         do {
-            audioFile = try AKAudioFile(readFileName: "beat.wav", baseDir: .resources)
+            audioFile = try AKAudioFile(readFileName: "John Gold - Vampire's Kiss.mp3", baseDir: .resources)
         } catch {
             print("Could not open audio file")
         }
@@ -99,16 +100,16 @@ class Scene : SKScene {
             tracker = AKFrequencyTracker(player)
             
             // Start AudioKit
-            AudioKit.output = tracker
+            AudioKit.output = oscillator
             AudioKit.start()
             player.play()
         }
         
-        // Configure the circle in the middle
-        centrePoint = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        shapeCircle = SKShapeNode(circleOfRadius: 10)
-        shapeCircle.position = centrePoint
-        addChild(shapeCircle)
+//        // Configure the circle in the middle
+//        centrePoint = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+//        shapeCircle = SKShapeNode(circleOfRadius: 10)
+//        shapeCircle.position = centrePoint
+//        addChild(shapeCircle)
         
     }
 
@@ -131,8 +132,8 @@ class Scene : SKScene {
         // Increment frame count
         frameCount += 1
         
-        // Remove the circle
-        shapeCircle.removeFromParent()
+//        // Remove the circle
+//        shapeCircle.removeFromParent()
         
         // Only analyze if volume (amplitude) reaches a certain threshold
         if tracker.amplitude > 0.1 && player != nil {
@@ -163,10 +164,10 @@ class Scene : SKScene {
                 }
             }
             
-            // Show the notes
-            let octave = Int(log2f(Float(tracker.frequency) / frequency))
-            labelNoteSharps.text = "Note (Sharps): " + "\(noteNamesWithSharps[index])\(octave)"
-            labelNoteFlats.text = "Note (Flats): " + "\(noteNamesWithFlats[index])\(octave)"
+//            // Show the notes
+//            let octave = Int(log2f(Float(tracker.frequency) / frequency))
+//            labelNoteSharps.text = "Note (Sharps): " + "\(noteNamesWithSharps[index])\(octave)"
+//            labelNoteFlats.text = "Note (Flats): " + "\(noteNamesWithFlats[index])\(octave)"
             
             // Show the amplitude
             labelAmplitude.text = "Amplitude is: " + String(format: "%0.2f", tracker.amplitude)
@@ -178,21 +179,26 @@ class Scene : SKScene {
             backgroundColor = NSColor(hue: hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
             
         }
+        
+        // The sine wave reacts to the frequency and amplitude of the song
+        oscillator.amplitude = tracker.amplitude
+        oscillator.frequency = tracker.frequency
+        oscillator.start()
 
-        // Resize the circle based on amplitude
-        shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 100))
-        shapeCircle.position = centrePoint
-        shapeCircle.zPosition = 0
-        addChild(shapeCircle)
+//        // Resize the circle based on amplitude
+//        shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 100))
+//        shapeCircle.position = centrePoint
+//        shapeCircle.zPosition = 0
+//        addChild(shapeCircle)
 
-        // Plot a line based on the frequency and the current frame
-        if frameCount < Int(self.size.width) {  // Don't add nodes to the scene once we get past the right edge
-            let shapeLine = SKShapeNode(rect: CGRect(x: frameCount, y: 0, width: 1, height: Int(tracker.frequency/2)))
-            shapeLine.lineWidth = 1
-            shapeLine.zPosition = 5
-            shapeLine.strokeColor = NSColor(hue: 0, saturation: 0, brightness: 1.0, alpha: 0.2)
-            addChild(shapeLine)
-        }
+//        // Plot a line based on the frequency and the current frame
+//        if frameCount < Int(self.size.width) {  // Don't add nodes to the scene once we get past the right edge
+//            let shapeLine = SKShapeNode(rect: CGRect(x: frameCount, y: 0, width: 1, height: Int(tracker.frequency/2)))
+//            shapeLine.lineWidth = 1
+//            shapeLine.zPosition = 5
+//            shapeLine.strokeColor = NSColor(hue: 0, saturation: 0, brightness: 1.0, alpha: 0.2)
+//            addChild(shapeLine)
+//        }
         
     }
     
