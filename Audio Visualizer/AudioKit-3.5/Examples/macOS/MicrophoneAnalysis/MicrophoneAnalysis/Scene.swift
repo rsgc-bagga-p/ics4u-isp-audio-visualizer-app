@@ -25,7 +25,6 @@ class Scene : SKScene {
     // Label for amplitude
     let labelAmplitude = SKLabelNode(fontNamed: "Helvetica")
     let labelFrequency = SKLabelNode(fontNamed: "Helvetica")
-
     
     // Circle
     var shapeCircle = SKShapeNode()
@@ -50,7 +49,7 @@ class Scene : SKScene {
         labelAmplitude.zPosition = 150
         labelAmplitude.position = CGPoint(x: size.width / 2, y: size.height / 5 * 1)
         addChild(labelAmplitude)
-        
+
         // Show the frequency
         labelFrequency.text = "Frequency is: "
         labelFrequency.fontColor = SKColor.white
@@ -58,7 +57,6 @@ class Scene : SKScene {
         labelFrequency.zPosition = 150
         labelFrequency.position = CGPoint(x: size.width / 2, y: size.height / 5 * 2)
         addChild(labelFrequency)
-        
         
         // Try to get a reference to the audio file
         do {
@@ -69,7 +67,7 @@ class Scene : SKScene {
         
         // Play the audio file
         if audioFile != nil {
-            
+
             do {
                 player = try AKAudioPlayer(file: audioFile)
                 player.looping = true
@@ -89,6 +87,7 @@ class Scene : SKScene {
             player.play()
         }
         
+
         // Configure the circle in the middle
         centrePoint = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         shapeCircle = SKShapeNode(circleOfRadius: 10)
@@ -118,6 +117,7 @@ class Scene : SKScene {
         
         // Remove the circle
         shapeCircle.removeFromParent()
+
         
         // Only analyze if volume (amplitude) reaches a certain threshold
         if tracker.amplitude > 0.1 && player != nil {
@@ -134,7 +134,7 @@ class Scene : SKScene {
             while (frequency < Float(noteFrequencies[0])) {
                 frequency = frequency * 2.0
             }
-            
+
             // Not sure what this does either!
             // Need to ask Mr. Martin, who may understand the music theory better
             var minDistance: Float = 10000.0
@@ -148,6 +148,7 @@ class Scene : SKScene {
                 }
             }
             
+
 
             // Show the amplitude
             labelAmplitude.text = "Amplitude is: " + String(format: "%0.2f", tracker.amplitude)
@@ -167,6 +168,7 @@ class Scene : SKScene {
             
         }
         
+
         // Resize the circle based on amplitude
         shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
         shapeCircle.position = centrePoint
@@ -174,12 +176,14 @@ class Scene : SKScene {
         addChild(shapeCircle)
         
         // Plot a line based on the frequency and the current frame
+
 //        if frameCount < Int(self.size.width) {  // Don't add nodes to the scene once we get past the right edge
 //            let shapeLine = SKShapeNode(rect: CGRect(x: frameCount, y: 0, width: 1, height: Int(tracker.frequency/2)))
 //            shapeLine.lineWidth = 1
 //            shapeLine.zPosition = 5
 //            shapeLine.strokeColor = NSColor(hue: 0, saturation: 0, brightness: 1.0, alpha: 0.2)
 //            addChild(shapeLine)
+
         }
         
     }
