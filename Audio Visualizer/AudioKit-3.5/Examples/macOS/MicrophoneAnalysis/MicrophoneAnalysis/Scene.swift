@@ -17,6 +17,7 @@ class Scene : SKScene {
     var audioFile : AKAudioFile!
     var player : AKAudioPlayer!
     var sinOutput : AKOutputWaveformPlot!
+
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
@@ -57,6 +58,7 @@ class Scene : SKScene {
         labelFrequency.zPosition = 150
         labelFrequency.position = CGPoint(x: size.width / 2, y: size.height / 5 * 2)
         addChild(labelFrequency)
+
         
         // Try to get a reference to the audio file
         do {
@@ -82,11 +84,13 @@ class Scene : SKScene {
             tracker = AKFrequencyTracker(player)
             
             // Start AudioKit
+
             AudioKit.output = tracker
             AudioKit.start()
             player.play()
         }
         
+
 
         // Configure the circle in the middle
         centrePoint = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
@@ -96,6 +100,7 @@ class Scene : SKScene {
         
     }
     
+
     // This method runs approximately 30-60 times per second
     override func update(_ currentTime: TimeInterval) {
         
@@ -150,6 +155,7 @@ class Scene : SKScene {
             
 
 
+
             // Show the amplitude
             labelAmplitude.text = "Amplitude is: " + String(format: "%0.2f", tracker.amplitude)
             
@@ -163,11 +169,13 @@ class Scene : SKScene {
         
             if tracker.amplitude > 0.5 {
         
+
             let hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
             backgroundColor = NSColor(hue: hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
             
         }
         
+
 
         // Resize the circle based on amplitude
         shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
@@ -176,6 +184,7 @@ class Scene : SKScene {
         addChild(shapeCircle)
         
         // Plot a line based on the frequency and the current frame
+
 
 //        if frameCount < Int(self.size.width) {  // Don't add nodes to the scene once we get past the right edge
 //            let shapeLine = SKShapeNode(rect: CGRect(x: frameCount, y: 0, width: 1, height: Int(tracker.frequency/2)))
