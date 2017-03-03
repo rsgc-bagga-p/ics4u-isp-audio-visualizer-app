@@ -11,7 +11,6 @@ import SpriteKit
 
 class Scene : SKScene {
     
-    var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
     var audioFile : AKAudioFile!

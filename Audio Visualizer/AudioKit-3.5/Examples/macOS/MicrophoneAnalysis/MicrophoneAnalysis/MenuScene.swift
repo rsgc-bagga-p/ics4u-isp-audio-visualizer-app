@@ -75,5 +75,20 @@ class MenuScene: SKScene {
             self.view!.presentScene(scene, transition: reveal)
         }
         
+       // Look for a click on the microphone button
+        if microButton.frame.contains(event.locationInWindow) {
+            print("Live button pressed.")
+            
+            // Create the menu scene with the same dimensions as the current scene
+            let live = LiveAnalysis(size: self.size)
+            
+            // Configure a transition object to specify the type of animation that handles the move between scenes
+            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
+            
+            // Access the current view and present the new scene
+            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
+            self.view!.presentScene(live, transition: reveal)
+        }
+        
     }
 }
