@@ -17,8 +17,9 @@ class LiveAnalysis: SKScene {
     var silence: AKBooster!
     
     override func didMove(to view: SKView) {
-        var tracker = AKFrequencyTracker.init(mic, hopSize: 200, peakCount: 2000)
-        var silence = AKBooster(tracker, gain: 0)
+        tracker = AKFrequencyTracker.init(mic, hopSize: 200, peakCount: 2000)
+        silence = AKBooster(tracker, gain: 0)
+        
         
     }
     
