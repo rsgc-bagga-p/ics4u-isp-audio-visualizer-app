@@ -63,7 +63,6 @@ class MenuScene: SKScene {
         //if button.int
         if button.frame.contains(event.locationInWindow) {
             print("Play button pressed.")
-            
             // Create the menu scene with the same dimensions as the current scene
             let scene = Scene(size: self.size)
             
