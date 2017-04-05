@@ -12,6 +12,8 @@ import SpriteKit
 
 class ViewController: NSViewController {
     
+    var skView : SKView = SKView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +22,7 @@ class ViewController: NSViewController {
         let menu = MenuScene(size: CGSize(width: 1280, height: 720))
         
         // Configure and present the scene
-        let skView = SKView(frame: NSRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 1280, height: 720)))
+        skView = SKView(frame: NSRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 1280, height: 720)))
 
         skView.showsFPS = true
         skView.showsNodeCount = true

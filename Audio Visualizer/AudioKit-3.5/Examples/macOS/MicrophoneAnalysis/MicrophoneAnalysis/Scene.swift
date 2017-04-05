@@ -16,6 +16,8 @@ class Scene : SKScene {
     var audioFile : AKAudioFile!
     var player : AKAudioPlayer!
     var sinOutput : AKOutputWaveformPlot!
+    
+    public var fileToAnalyze : String = ""
 
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
@@ -38,30 +40,6 @@ class Scene : SKScene {
     var frameCount = 0
     
     override func didMove(to view: SKView) {
-        
-        let dialog = NSOpenPanel();
-        
-        dialog.title                   = "Choose a .txt file";
-        dialog.showsResizeIndicator    = true;
-        dialog.showsHiddenFiles        = false;
-        dialog.canChooseDirectories    = true;
-        dialog.canCreateDirectories    = true;
-        dialog.allowsMultipleSelection = false;
-        dialog.allowedFileTypes        = ["txt"];
-        
-        if (dialog.runModal() == NSModalResponseOK) {
-            
-            if let result = dialog.url { // Pathname of the file
-                print(result.path)
-                print(result.lastPathComponent)
-                print(result.pathComponents)
-            }
-        } else {
-            // User clicked on "Cancel"
-            return
-        }
-        
-        
         // Set the background color
         backgroundColor = SKColor.blue
         
@@ -84,7 +62,7 @@ class Scene : SKScene {
         
         // Try to get a reference to the audio file
         do {
-            audioFile = try AKAudioFile(readFileName: "John Gold - Vampire's Kiss.mp3", baseDir: .documents)
+            audioFile = try AKAudioFile(readFileName: "John Gold - Vampire's Kiss.mp3", baseDir: .student)
         } catch {
             print("Could not open audio file")
         }
