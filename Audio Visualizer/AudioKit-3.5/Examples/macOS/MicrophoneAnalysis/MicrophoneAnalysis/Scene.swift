@@ -16,7 +16,6 @@ class Scene : SKScene {
     var audioFile : AKAudioFile!
     var player : AKAudioPlayer!
     var sinOutput : AKOutputWaveformPlot!
-    
     public var fileToAnalyze : String = ""
 
     
@@ -62,7 +61,7 @@ class Scene : SKScene {
         
         // Try to get a reference to the audio file
         do {
-            audioFile = try AKAudioFile(readFileName: "John Gold - Vampire's Kiss.mp3", baseDir: .student)
+            audioFile = try AKAudioFile(readFileName: fileToAnalyze, baseDir: .documents)
         } catch {
             print("Could not open audio file")
         }

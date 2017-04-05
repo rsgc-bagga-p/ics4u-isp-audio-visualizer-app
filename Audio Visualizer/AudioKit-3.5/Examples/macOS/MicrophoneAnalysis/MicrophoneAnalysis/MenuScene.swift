@@ -112,13 +112,13 @@ class MenuScene: SKScene {
             
             let dialog = NSOpenPanel();
             
-            dialog.title                   = "Choose a .txt file";
+            dialog.title                   = "Choose a .mp3 file";
             dialog.showsResizeIndicator    = true;
             dialog.showsHiddenFiles        = false;
             dialog.canChooseDirectories    = true;
             dialog.canCreateDirectories    = true;
             dialog.allowsMultipleSelection = false;
-            dialog.allowedFileTypes        = ["txt"];
+            dialog.allowedFileTypes        = ["mp3"];
             
             if (dialog.runModal() == NSModalResponseOK) {
                 
@@ -126,7 +126,7 @@ class MenuScene: SKScene {
                     print(result.path)
                     print(result.lastPathComponent)
                     print(result.pathComponents)
-                    file = result.path
+                    file = result.lastPathComponent
                 }
             } else {
                 // User clicked on "Cancel"
