@@ -17,7 +17,14 @@ class Scene : SKScene {
     var player : AKAudioPlayer!
     var sinOutput : AKOutputWaveformPlot!
     public var fileToAnalyze : String = ""
-
+    
+    class Particles {
+        let particleType = SKTexture(imageNamed: "spark")
+        let emmitter = SKEmitterNode()
+        var hue : CGFloat = 0.0
+    }
+    
+    let particles = Particles()
     
     let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
     let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
@@ -38,9 +45,43 @@ class Scene : SKScene {
     // For tracking frames
     var frameCount = 0
     
+    func analyzer(intensity: CGFloat ) -> SKEmitterNode {
+        
+        particles.emmitter.zPosition = 2
+        particles.emmitter.particleTexture = particles.particleType
+        particles.emmitter.particleBirthRate = 4000 * intensity
+        particles.emmitter.numParticlesToEmit = Int(tracker.amplitude * 100)
+        particles.emmitter.particleLifetime = 2.0
+        particles.emmitter.emissionAngle = CGFloat(90.0)
+        particles.emmitter.emissionAngleRange = CGFloat(360.0)
+        particles.emmitter.particleSpeed = CGFloat(tracker.frequency)
+        particles.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
+        particles.emmitter.particleAlpha = 1.0
+        particles.emmitter.particleAlphaRange = 0.25
+        particles.emmitter.particleScale = 1.2
+        particles.emmitter.particleScaleRange = 2.0
+        particles.emmitter.particleScaleSpeed = -1.5
+        if tracker.amplitude > 0.5 {
+            
+            
+            particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
+            
+            
+        }
+        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+        particles.emmitter.particleColorBlendFactor = 1
+        particles.emmitter.particleBlendMode = SKBlendMode.add
+        particles.emmitter.run(SKAction.removeFromParent())
+        
+        
+        
+        return particles.emmitter
+    }
+    
     override func didMove(to view: SKView) {
         // Set the background color
-        backgroundColor = SKColor.blue
+        backgroundColor = SKColor.black
+        
         
         // Show the amplitude
         labelAmplitude.text = "Amplitude is: "
@@ -57,7 +98,6 @@ class Scene : SKScene {
         labelFrequency.zPosition = 150
         labelFrequency.position = CGPoint(x: size.width / 2, y: size.height / 5 * 2)
         addChild(labelFrequency)
-
         
         // Try to get a reference to the audio file
         do {
@@ -166,31 +206,23 @@ class Scene : SKScene {
             
             //changes to the high beats of a song
         
-            if tracker.amplitude > 0.5 {
+            //if tracker.amplitude > 0.5 {
         
 
-            let hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-            backgroundColor = NSColor(hue: hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+            //let hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
+            //backgroundColor = NSColor(hue: hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
             
-        }
+        //}
         
 
 
         // Resize the circle based on amplitude
-        shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
-        shapeCircle.position = centrePoint
-        shapeCircle.zPosition = 0
-        addChild(shapeCircle)
-        
-        // Plot a line based on the frequency and the current frame
-
-
-//        if frameCount < Int(self.size.width) {  // Don't add nodes to the scene once we get past the right edge
-//            let shapeLine = SKShapeNode(rect: CGRect(x: frameCount, y: 0, width: 1, height: Int(tracker.frequency/2)))
-//            shapeLine.lineWidth = 1
-//            shapeLine.zPosition = 5
-//            shapeLine.strokeColor = NSColor(hue: 0, saturation: 0, brightness: 1.0, alpha: 0.2)
-//            addChild(shapeLine)
+        //shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
+        //shapeCircle.position = centrePoint
+        //shapeCircle.zPosition = 0
+        //addChild(shapeCircle)
+            
+            analyzer(intensity: 50)
 
         }
         
