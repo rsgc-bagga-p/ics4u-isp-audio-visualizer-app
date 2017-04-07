@@ -26,10 +26,6 @@ class Scene : SKScene {
     
     let particles = Particles()
     
-    let noteFrequencies = [16.35,17.32,18.35,19.45,20.6,21.83,23.12,24.5,25.96,27.5,29.14,30.87]
-    let noteNamesWithSharps = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
-    let noteNamesWithFlats = ["C", "D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"]
-    
     // Label for amplitude
     let labelAmplitude = SKLabelNode(fontNamed: "Helvetica")
     let labelFrequency = SKLabelNode(fontNamed: "Helvetica")
@@ -50,12 +46,12 @@ class Scene : SKScene {
         particles.emmitter.zPosition = 2
         particles.emmitter.particleTexture = particles.particleType
         particles.emmitter.particleBirthRate = 4000 * intensity
-        particles.emmitter.numParticlesToEmit = Int(tracker.amplitude * 100)
+        particles.emmitter.numParticlesToEmit = Int(intensity * 100)
         particles.emmitter.particleLifetime = 2.0
         particles.emmitter.emissionAngle = CGFloat(90.0)
         particles.emmitter.emissionAngleRange = CGFloat(360.0)
         particles.emmitter.particleSpeed = CGFloat(tracker.frequency)
-        particles.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
+        //.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
         particles.emmitter.particleAlpha = 1.0
         particles.emmitter.particleAlphaRange = 0.25
         particles.emmitter.particleScale = 1.2
@@ -127,6 +123,7 @@ class Scene : SKScene {
             AudioKit.output = tracker
             AudioKit.start()
             player.play()
+            
         }
         
 
@@ -137,11 +134,14 @@ class Scene : SKScene {
         shapeCircle.position = centrePoint
         addChild(shapeCircle)
         
+        
     }
     
 
     // This method runs approximately 30-60 times per second
     override func update(_ currentTime: TimeInterval) {
+        
+        particles.emmitter.particleTexture = particles.particleType
         
         // Check to see if visualization has been started yet
         if let startTime = startTime {
@@ -162,39 +162,12 @@ class Scene : SKScene {
         // Remove the circle
         shapeCircle.removeFromParent()
 
-        
         // Only analyze if volume (amplitude) reaches a certain threshold
         if tracker.amplitude > 0.1 && player != nil {
             
             // Show the frequency
             labelFrequency.text = "Frequency is: " + String(format: "%0.1f", tracker.frequency)
             
-            // Not sure what this does, to be honest, it's from the AudioKit example file
-            // I think it's to do with figuring out what note is playing
-            var frequency = Float(tracker.frequency)
-            while (frequency > Float(noteFrequencies[noteFrequencies.count-1])) {
-                frequency = frequency / 2.0
-            }
-            while (frequency < Float(noteFrequencies[0])) {
-                frequency = frequency * 2.0
-            }
-
-            // Not sure what this does either!
-            // Need to ask Mr. Martin, who may understand the music theory better
-            var minDistance: Float = 10000.0
-            var index = 0
-            
-            for i in 0..<noteFrequencies.count {
-                let distance = fabsf(Float(noteFrequencies[i]) - frequency)
-                if (distance < minDistance){
-                    index = i
-                    minDistance = distance
-                }
-            }
-            
-
-
-
             // Show the amplitude
             labelAmplitude.text = "Amplitude is: " + String(format: "%0.2f", tracker.amplitude)
             
@@ -205,10 +178,7 @@ class Scene : SKScene {
 //            // http://russellgordon.ca/rsgc/2016-17/ics2o/HSB%20Colour%20Model%20-%20Summary%20-%20Swift.pdf
             
             //changes to the high beats of a song
-        
             //if tracker.amplitude > 0.5 {
-        
-
             //let hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
             //backgroundColor = NSColor(hue: hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
             
@@ -222,7 +192,6 @@ class Scene : SKScene {
         //shapeCircle.zPosition = 0
         //addChild(shapeCircle)
             
-            analyzer(intensity: 50)
 
         }
         
