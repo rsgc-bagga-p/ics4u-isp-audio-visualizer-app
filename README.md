@@ -96,3 +96,6 @@ My biggest challenge in completing this ISP will be to manage my time. I have ma
  
  ![Julia](https://github.com/rsgc-bagga-p/ics4u-isp-audio-visualizer-app/blob/5edeedc892f5b1c2edb6a4ed576a42952235ce4d/Audio%20Visualizer/SoftwareISPJulia.jpeg?raw=true)
 
+### UPDATE...
+
+The program now uses particle systems to display the visualizers instead of fractals. The user interface remains the same as before.
