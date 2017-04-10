@@ -24,6 +24,8 @@ class Scene : SKScene {
         var hue : CGFloat = 0.0
     }
     
+    var backButton = SKSpriteNode()
+    
     let particles = Particles()
     
     // Label for amplitude
@@ -67,10 +69,6 @@ class Scene : SKScene {
         particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
         particles.emmitter.particleColorBlendFactor = 1
         particles.emmitter.particleBlendMode = SKBlendMode.add
-        particles.emmitter.run(SKAction.removeFromParent())
-        
-        
-        
         return particles.emmitter
     }
     
@@ -141,8 +139,6 @@ class Scene : SKScene {
     // This method runs approximately 30-60 times per second
     override func update(_ currentTime: TimeInterval) {
         
-        particles.emmitter.particleTexture = particles.particleType
-        
         // Check to see if visualization has been started yet
         if let startTime = startTime {
             // If started, how much time has elapsed?
@@ -184,15 +180,39 @@ class Scene : SKScene {
             
         //}
         
-
-
+            particles.emmitter.zPosition = 2
+            particles.emmitter.particleTexture = particles.particleType
+            particles.emmitter.particleBirthRate = 80
+            particles.emmitter.numParticlesToEmit = Int(200)
+            particles.emmitter.particleLifetime = 2.0
+            //particles.emmitter.emissionAngle = CGFloat(90.0)
+            //particles.emmitter.emissionAngleRange = CGFloat(360.0)
+            particles.emmitter.particleSpeed = CGFloat(200)
+            //.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
+            particles.emmitter.particleAlpha = 1.0
+            particles.emmitter.particleAlphaRange = 0.25
+            particles.emmitter.particleScale = 1.2
+            particles.emmitter.particleScaleRange = 2.0
+            particles.emmitter.particleScaleSpeed = -1.5
+            if tracker.amplitude > 0.5 {
+                
+                
+                particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
+                
+                
+            }
+            particles.emmitter.particleColor = SKColor.orange//NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+            particles.emmitter.particleColorBlendFactor = 1
+            particles.emmitter.particleBlendMode = SKBlendMode.add
+            particles.emmitter.position = CGPoint(x: size.width / 2, y: size.height / 2)
+            particles.emmitter.particlePositionRange = CGVector(dx: frame.maxX, dy: 0)
+            addChild(particles.emmitter)
         // Resize the circle based on amplitude
         //shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
         //shapeCircle.position = centrePoint
         //shapeCircle.zPosition = 0
         //addChild(shapeCircle)
             
-
         }
         
     }
