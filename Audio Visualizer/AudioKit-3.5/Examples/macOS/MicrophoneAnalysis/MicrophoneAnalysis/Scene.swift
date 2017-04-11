@@ -182,10 +182,10 @@ class Scene : SKScene {
         if tracker.amplitude > 0.1 && player != nil {
             
             // Show the frequency
-            labelFrequency.text = "Frequency is: " + String(format: "%0.1f", tracker.frequency)
+            //labelFrequency.text = "Frequency is: " + String(format: "%0.1f", tracker.frequency)
             
             // Show the amplitude
-            labelAmplitude.text = "Amplitude is: " + String(format: "%0.2f", tracker.amplitude)
+            //labelAmplitude.text = "Amplitude is: " + String(format: "%0.2f", tracker.amplitude)
             
             
            // self.backgroundColor = SKColor.black //change the background colour
@@ -222,6 +222,7 @@ class Scene : SKScene {
         particles.emmitter.particleSpeed = CGFloat(tracker.amplitude * 300)
         particles.particlesToemmit += 80
         particles.emmitter.numParticlesToEmit = particles.particlesToemmit
+        particles.emmitter.emissionAngle = CGFloat(tracker.amplitude * 200)
         
     }
     

@@ -40,6 +40,8 @@ class LiveAnalysis: SKScene {
     var frameCount = 0
     
     override func didMove(to view: SKView) {
+        // Set the background color
+        backgroundColor = SKColor.black
         
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
@@ -48,17 +50,33 @@ class LiveAnalysis: SKScene {
         AudioKit.output = silence
         AudioKit.start()
         
-        // Configure the circle in the middle
-        centrePoint = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        shapeCircle = SKShapeNode(circleOfRadius: 10)
-        shapeCircle.position = centrePoint
-        addChild(shapeCircle)
         
         backButton = SKSpriteNode(imageNamed: "backButton")
         backButton.position = CGPoint(x: 50, y: 50)
         backButton.setScale(0.3)
         backButton.zPosition = 200
         self.addChild(backButton)
+        
+        particles.emmitter.zPosition = 2
+        particles.emmitter.particleTexture = particles.particleType
+        particles.emmitter.particleBirthRate = 80
+        particles.emmitter.numParticlesToEmit = particles.particlesToemmit
+        particles.emmitter.particleLifetime = 2.0
+        //particles.emmitter.emissionAngle = CGFloat(90.0)
+        //particles.emmitter.emissionAngleRange = CGFloat(360.0)
+        particles.emmitter.particleSpeed = CGFloat(200)
+        //.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
+        particles.emmitter.particleAlpha = 1.0
+        particles.emmitter.particleAlphaRange = 0.25
+        particles.emmitter.particleScale = 1.2
+        particles.emmitter.particleScaleRange = 2.0
+        particles.emmitter.particleScaleSpeed = -1.5
+        particles.emmitter.particleColor = SKColor.orange
+        particles.emmitter.particleColorBlendFactor = 1
+        particles.emmitter.particleBlendMode = SKBlendMode.add
+        particles.emmitter.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        particles.emmitter.particlePositionRange = CGVector(dx: frame.maxX, dy: 0)
+        addChild(particles.emmitter)
         
     }
     
@@ -82,22 +100,14 @@ class LiveAnalysis: SKScene {
         // Remove the circle
         shapeCircle.removeFromParent()
         
-        //changes to the high beats of a song
-        
-        if tracker.amplitude > 0.5 {
-            
-            
-            let hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-            backgroundColor = NSColor(hue: hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
-            
+        if tracker.amplitude > 0.2 {
+            particles.hue = abs(CGFloat(tracker.frequency * 100.0).remainder(dividingBy: 360)/360)
         }
-        
-        // Resize the circle based on amplitude
-        shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
-        shapeCircle.position = centrePoint
-        shapeCircle.zPosition = 0
-        addChild(shapeCircle)
-        
+        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+        particles.emmitter.particleBirthRate = 80
+        particles.emmitter.particleSpeed = CGFloat(tracker.amplitude * 1000)
+        particles.particlesToemmit += 80
+        particles.emmitter.numParticlesToEmit = particles.particlesToemmit
     }
     
     
