@@ -44,29 +44,6 @@ class Scene : SKScene {
     // For tracking frames
     var frameCount = 0
     
-    func analyzer(intensity: CGFloat ) -> SKEmitterNode {
-        
-        particles.emmitter.zPosition = 2
-        particles.emmitter.particleTexture = particles.particleType
-        particles.emmitter.particleBirthRate = 4000 * intensity
-        particles.emmitter.numParticlesToEmit = Int(intensity * 100)
-        particles.emmitter.particleLifetime = 2.0
-        particles.emmitter.emissionAngle = CGFloat(90.0)
-        particles.emmitter.emissionAngleRange = CGFloat(360.0)
-        particles.emmitter.particleSpeed = CGFloat(tracker.frequency)
-        //.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
-        particles.emmitter.particleAlpha = 1.0
-        particles.emmitter.particleAlphaRange = 0.25
-        particles.emmitter.particleScale = 1.2
-        particles.emmitter.particleScaleRange = 2.0
-        particles.emmitter.particleScaleSpeed = -1.5
-        particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
-        particles.emmitter.particleColorBlendFactor = 1
-        particles.emmitter.particleBlendMode = SKBlendMode.add
-        return particles.emmitter
-    }
-    
     override func didMove(to view: SKView) {
         // Set the background color
         backgroundColor = SKColor.black
@@ -78,20 +55,20 @@ class Scene : SKScene {
         self.addChild(backButton)
         
         // Show the amplitude
-        labelAmplitude.text = "Amplitude is: "
-        labelAmplitude.fontColor = SKColor.white
-        labelAmplitude.fontSize = 24
-        labelAmplitude.zPosition = 150
-        labelAmplitude.position = CGPoint(x: size.width / 2, y: size.height / 5 * 1)
-        addChild(labelAmplitude)
-
+        //labelAmplitude.text = "Amplitude is: "
+        //labelAmplitude.fontColor = SKColor.white
+        //labelAmplitude.fontSize = 24
+        //labelAmplitude.zPosition = 150
+        //labelAmplitude.position = CGPoint(x: size.width / 2, y: size.height / 5 * 1)
+        //addChild(labelAmplitude)
+        
         // Show the frequency
-        labelFrequency.text = "Frequency is: "
-        labelFrequency.fontColor = SKColor.white
-        labelFrequency.fontSize = 24
-        labelFrequency.zPosition = 150
-        labelFrequency.position = CGPoint(x: size.width / 2, y: size.height / 5 * 2)
-        addChild(labelFrequency)
+        //labelFrequency.text = "Frequency is: "
+        //labelFrequency.fontColor = SKColor.white
+        //labelFrequency.fontSize = 24
+        //labelFrequency.zPosition = 150
+        //labelFrequency.position = CGPoint(x: size.width / 2, y: size.height / 5 * 2)
+        //addChild(labelFrequency)
         
         // Try to get a reference to the audio file
         do {
