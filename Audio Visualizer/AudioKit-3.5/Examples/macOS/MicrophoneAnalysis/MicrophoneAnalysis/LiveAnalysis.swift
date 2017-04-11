@@ -16,6 +16,15 @@ class LiveAnalysis: SKScene {
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
     
+    class Particles {
+        let particleType = SKTexture(imageNamed: "spark")
+        let emmitter = SKEmitterNode()
+        var hue : CGFloat = 0.0
+        var particlesToemmit : Int = 4000
+    }
+    
+    let particles = Particles()
+    
     //backButton
     var backButton = SKSpriteNode()
     
@@ -50,6 +59,7 @@ class LiveAnalysis: SKScene {
         backButton.setScale(0.3)
         backButton.zPosition = 200
         self.addChild(backButton)
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -87,6 +97,7 @@ class LiveAnalysis: SKScene {
         shapeCircle.position = centrePoint
         shapeCircle.zPosition = 0
         addChild(shapeCircle)
+        
     }
     
     

@@ -22,6 +22,7 @@ class Scene : SKScene {
         let particleType = SKTexture(imageNamed: "spark")
         let emmitter = SKEmitterNode()
         var hue : CGFloat = 0.0
+        var particlesToemmit : Int = 4000
     }
     
     var backButton = SKSpriteNode()
@@ -134,7 +135,7 @@ class Scene : SKScene {
         particles.emmitter.zPosition = 2
         particles.emmitter.particleTexture = particles.particleType
         particles.emmitter.particleBirthRate = 80
-        particles.emmitter.numParticlesToEmit = Int(200)
+        particles.emmitter.numParticlesToEmit = particles.particlesToemmit
         particles.emmitter.particleLifetime = 2.0
         //particles.emmitter.emissionAngle = CGFloat(90.0)
         //particles.emmitter.emissionAngleRange = CGFloat(360.0)
@@ -145,10 +146,7 @@ class Scene : SKScene {
         particles.emmitter.particleScale = 1.2
         particles.emmitter.particleScaleRange = 2.0
         particles.emmitter.particleScaleSpeed = -1.5
-        if tracker.amplitude > 0.5 {
-            particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-        }
-        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+        particles.emmitter.particleColor = SKColor.orange
         particles.emmitter.particleColorBlendFactor = 1
         particles.emmitter.particleBlendMode = SKBlendMode.add
         particles.emmitter.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -215,6 +213,15 @@ class Scene : SKScene {
             //particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
             //addChild(particles.emmitter)
         }
+        
+        if tracker.amplitude > 0.5 {
+            particles.hue = abs(CGFloat(tracker.frequency * 100.0).remainder(dividingBy: 360)/360)
+        }
+        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+        particles.emmitter.particleBirthRate = 80
+        particles.emmitter.particleSpeed = CGFloat(tracker.amplitude * 300)
+        particles.particlesToemmit += 80
+        particles.emmitter.numParticlesToEmit = particles.particlesToemmit
         
     }
     
