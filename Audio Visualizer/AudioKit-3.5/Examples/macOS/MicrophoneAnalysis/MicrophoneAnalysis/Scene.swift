@@ -41,6 +41,7 @@ class Scene : SKScene {
     var frameCount = 0
     
     override func didMove(to view: SKView) {
+        
         // Set the background color
         backgroundColor = SKColor.black
         
@@ -124,7 +125,7 @@ class Scene : SKScene {
         if tracker.amplitude > 0.5 {
             particles.hue = abs(CGFloat(tracker.frequency * 100.0).remainder(dividingBy: 360)/360)
         }
-        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 2, alpha: 0.2)
         particles.emmitter.particleBirthRate = 80
         particles.emmitter.particleSpeed = CGFloat(tracker.amplitude * 300)
         particles.particlesToemmit += 80
