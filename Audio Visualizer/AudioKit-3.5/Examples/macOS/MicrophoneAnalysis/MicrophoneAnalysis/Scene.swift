@@ -59,13 +59,7 @@ class Scene : SKScene {
         particles.emmitter.particleScale = 1.2
         particles.emmitter.particleScaleRange = 2.0
         particles.emmitter.particleScaleSpeed = -1.5
-        if tracker.amplitude > 0.5 {
-            
-            
-            particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-            
-            
-        }
+        particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
         particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
         particles.emmitter.particleColorBlendFactor = 1
         particles.emmitter.particleBlendMode = SKBlendMode.add
@@ -76,6 +70,11 @@ class Scene : SKScene {
         // Set the background color
         backgroundColor = SKColor.black
         
+        backButton = SKSpriteNode(imageNamed: "backButton")
+        backButton.position = CGPoint(x: 50, y: 50)
+        backButton.setScale(0.3)
+        backButton.zPosition = 200
+        self.addChild(backButton)
         
         // Show the amplitude
         labelAmplitude.text = "Amplitude is: "
@@ -147,13 +146,9 @@ class Scene : SKScene {
         particles.emmitter.particleScaleRange = 2.0
         particles.emmitter.particleScaleSpeed = -1.5
         if tracker.amplitude > 0.5 {
-            
-            
             particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-            
-            
         }
-        particles.emmitter.particleColor = SKColor.orange//NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+        particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
         particles.emmitter.particleColorBlendFactor = 1
         particles.emmitter.particleBlendMode = SKBlendMode.add
         particles.emmitter.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -162,7 +157,6 @@ class Scene : SKScene {
         
         
     }
-    
 
     // This method runs approximately 30-60 times per second
     override func update(_ currentTime: TimeInterval) {
@@ -185,7 +179,7 @@ class Scene : SKScene {
         
         // Remove the circle
         shapeCircle.removeFromParent()
-
+    
         // Only analyze if volume (amplitude) reaches a certain threshold
         if tracker.amplitude > 0.1 && player != nil {
             
@@ -213,8 +207,35 @@ class Scene : SKScene {
         //shapeCircle.zPosition = 0
         //addChild(shapeCircle)
             
+        //change the particle animations and colours based on the song 
+            //particles.emmitter.advanceSimulationTime(TimeInterval(elapsedTime))
+            //if tracker.amplitude > 0.5 {
+              //  particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
+            //}
+            //particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
+            //addChild(particles.emmitter)
         }
         
+    }
+    
+    override func mouseDown(with event: NSEvent) {
+        // Look for a click on the back button
+        if backButton.frame.contains(event.locationInWindow) {
+            print("back button pressed.")
+            
+            //pause the music
+            player.stop()
+            
+            // Create the live analysis scene with the same dimensions as the current scene
+            let menu = MenuScene(size: self.size)
+            
+            // Configure a transition object to specify the type of animation that handles the move between scenes
+            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
+            
+            // Access the current view and present the new scene
+            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
+            self.view!.presentScene(menu, transition: reveal)
+        }
     }
     
 }

@@ -79,7 +79,7 @@ class MenuScene: SKScene {
         //if button.int
         if button.frame.contains(event.locationInWindow) {
             print("Play button pressed.")
-            // Create the menu scene with the same dimensions as the current scene
+            // Create the playBack visualizer scene with the same dimensions as the current scene
             let scene = Scene(size: self.size)
             scene.fileToAnalyze = file
             
@@ -95,7 +95,7 @@ class MenuScene: SKScene {
         if microButton.frame.contains(event.locationInWindow) {
             print("Live button pressed.")
             
-            // Create the menu scene with the same dimensions as the current scene
+            // Create the live analysis scene with the same dimensions as the current scene
             let live = LiveAnalysis(size: self.size)
             
             // Configure a transition object to specify the type of animation that handles the move between scenes

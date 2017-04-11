@@ -16,6 +16,9 @@ class LiveAnalysis: SKScene {
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
     
+    //backButton
+    var backButton = SKSpriteNode()
+    
     // Circle
     var shapeCircle = SKShapeNode()
     var centrePoint = CGPoint()
@@ -41,6 +44,12 @@ class LiveAnalysis: SKScene {
         shapeCircle = SKShapeNode(circleOfRadius: 10)
         shapeCircle.position = centrePoint
         addChild(shapeCircle)
+        
+        backButton = SKSpriteNode(imageNamed: "backButton")
+        backButton.position = CGPoint(x: 50, y: 50)
+        backButton.setScale(0.3)
+        backButton.zPosition = 200
+        self.addChild(backButton)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -73,18 +82,30 @@ class LiveAnalysis: SKScene {
             
         }
         
-        
-        
         // Resize the circle based on amplitude
         shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
         shapeCircle.position = centrePoint
         shapeCircle.zPosition = 0
         addChild(shapeCircle)
-        
-        
-        
     }
     
+    
+    override func mouseDown(with event: NSEvent) {
+        // Look for a click on the back button
+        if backButton.frame.contains(event.locationInWindow) {
+            print("back button pressed.")
+            
+            // Create the menu scene with the same dimensions as the current scene
+            let menu = MenuScene(size: self.size)
+            
+            // Configure a transition object to specify the type of animation that handles the move between scenes
+            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
+            
+            // Access the current view and present the new scene
+            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
+            self.view!.presentScene(menu, transition: reveal)
+        }
+    }
     
     
 }
