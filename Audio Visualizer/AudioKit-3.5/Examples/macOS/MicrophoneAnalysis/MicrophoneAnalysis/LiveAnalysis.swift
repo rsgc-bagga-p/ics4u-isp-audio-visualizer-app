@@ -108,6 +108,8 @@ class LiveAnalysis: SKScene {
         particles.emmitter.particleSpeed = CGFloat(tracker.amplitude * 1000)
         particles.particlesToemmit += 80
         particles.emmitter.numParticlesToEmit = particles.particlesToemmit
+        particles.emmitter.emissionAngle = CGFloat(tracker.amplitude * 200)
+
     }
     
     

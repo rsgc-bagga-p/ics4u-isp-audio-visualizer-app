@@ -21,6 +21,8 @@ class MenuScene: SKScene {
     var microphoneLabel = SKLabelNode()
     //Microphone Button
     var microButton = SKSpriteNode()
+    //Prechosen Audio Playback label
+    var playBackLabel = SKLabelNode()
     
     // This method runs once after the scene loads
     override func didMove(to view: SKView) {
@@ -48,7 +50,7 @@ class MenuScene: SKScene {
         welcomeTitle.fontSize = 48
         welcomeTitle.zPosition = 250
         welcomeTitle.fontColor = SKColor.white
-        welcomeTitle.text = "Welcome"
+        welcomeTitle.text = "Audio Analyzer"
         self.addChild(welcomeTitle)
         
         // Label for the Microphone Button
@@ -61,6 +63,16 @@ class MenuScene: SKScene {
         microphoneLabel.text = "Live Audio Analysis"
         self.addChild(microphoneLabel)
         
+        // Label for Chosen Music Label
+        playBackLabel = SKLabelNode(fontNamed: "Futura Bold")
+        playBackLabel.position = CGPoint(x: self.size.width / 2, y: (self.size.height / 2) + 200)
+        playBackLabel.isHidden = false
+        playBackLabel.fontSize = 30
+        playBackLabel.zPosition = 250
+        playBackLabel.fontColor = SKColor.white
+        playBackLabel.text = "Audio Analysis From File"
+        self.addChild(playBackLabel)
+
         
     }
     
