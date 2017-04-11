@@ -28,10 +28,6 @@ class LiveAnalysis: SKScene {
     //backButton
     var backButton = SKSpriteNode()
     
-    // Circle
-    var shapeCircle = SKShapeNode()
-    var centrePoint = CGPoint()
-    
     // For tracking elapsed time
     var elapsedTime: Int = 0
     var startTime: Int?
@@ -62,10 +58,7 @@ class LiveAnalysis: SKScene {
         particles.emmitter.particleBirthRate = 80
         particles.emmitter.numParticlesToEmit = particles.particlesToemmit
         particles.emmitter.particleLifetime = 2.0
-        //particles.emmitter.emissionAngle = CGFloat(90.0)
-        //particles.emmitter.emissionAngleRange = CGFloat(360.0)
         particles.emmitter.particleSpeed = CGFloat(200)
-        //.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
         particles.emmitter.particleAlpha = 1.0
         particles.emmitter.particleAlphaRange = 0.25
         particles.emmitter.particleScale = 1.2
@@ -96,9 +89,6 @@ class LiveAnalysis: SKScene {
         
         // Increment frame count
         frameCount += 1
-        
-        // Remove the circle
-        shapeCircle.removeFromParent()
         
         if tracker.amplitude > 0.2 {
             particles.hue = abs(CGFloat(tracker.frequency * 100.0).remainder(dividingBy: 360)/360)

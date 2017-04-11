@@ -33,10 +33,6 @@ class Scene : SKScene {
     let labelAmplitude = SKLabelNode(fontNamed: "Helvetica")
     let labelFrequency = SKLabelNode(fontNamed: "Helvetica")
     
-    // Circle
-    var shapeCircle = SKShapeNode()
-    var centrePoint = CGPoint()
-    
     // For tracking elapsed time
     var elapsedTime: Int = 0
     var startTime: Int?
@@ -53,22 +49,6 @@ class Scene : SKScene {
         backButton.setScale(0.3)
         backButton.zPosition = 200
         self.addChild(backButton)
-        
-        // Show the amplitude
-        //labelAmplitude.text = "Amplitude is: "
-        //labelAmplitude.fontColor = SKColor.white
-        //labelAmplitude.fontSize = 24
-        //labelAmplitude.zPosition = 150
-        //labelAmplitude.position = CGPoint(x: size.width / 2, y: size.height / 5 * 1)
-        //addChild(labelAmplitude)
-        
-        // Show the frequency
-        //labelFrequency.text = "Frequency is: "
-        //labelFrequency.fontColor = SKColor.white
-        //labelFrequency.fontSize = 24
-        //labelFrequency.zPosition = 150
-        //labelFrequency.position = CGPoint(x: size.width / 2, y: size.height / 5 * 2)
-        //addChild(labelFrequency)
         
         // Try to get a reference to the audio file
         do {
@@ -100,24 +80,13 @@ class Scene : SKScene {
             player.play()
             
         }
-        
-
-
-        // Configure the circle in the middle
-        centrePoint = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-        shapeCircle = SKShapeNode(circleOfRadius: 10)
-        shapeCircle.position = centrePoint
-        addChild(shapeCircle)
-        
+                
         particles.emmitter.zPosition = 2
         particles.emmitter.particleTexture = particles.particleType
         particles.emmitter.particleBirthRate = 80
         particles.emmitter.numParticlesToEmit = particles.particlesToemmit
         particles.emmitter.particleLifetime = 2.0
-        //particles.emmitter.emissionAngle = CGFloat(90.0)
-        //particles.emmitter.emissionAngleRange = CGFloat(360.0)
         particles.emmitter.particleSpeed = CGFloat(200)
-        //.emmitter.particleSpeedRange = CGFloat(1000 * tracker.frequency)
         particles.emmitter.particleAlpha = 1.0
         particles.emmitter.particleAlphaRange = 0.25
         particles.emmitter.particleScale = 1.2
@@ -151,45 +120,6 @@ class Scene : SKScene {
         
         // Increment frame count
         frameCount += 1
-        
-        // Remove the circle
-        shapeCircle.removeFromParent()
-    
-        // Only analyze if volume (amplitude) reaches a certain threshold
-        if tracker.amplitude > 0.1 && player != nil {
-            
-            // Show the frequency
-            //labelFrequency.text = "Frequency is: " + String(format: "%0.1f", tracker.frequency)
-            
-            // Show the amplitude
-            //labelAmplitude.text = "Amplitude is: " + String(format: "%0.2f", tracker.amplitude)
-            
-            
-           // self.backgroundColor = SKColor.black //change the background colour
-//            // Set the colour of the background based on the frequency
-//            // See for further details about how hue value works:
-//            // http://russellgordon.ca/rsgc/2016-17/ics2o/HSB%20Colour%20Model%20-%20Summary%20-%20Swift.pdf
-            
-            //changes to the high beats of a song
-            //if tracker.amplitude > 0.5 {
-            //let hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-            //backgroundColor = NSColor(hue: hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
-            
-        //}
-        // Resize the circle based on amplitude
-        //shapeCircle = SKShapeNode(circleOfRadius: CGFloat(tracker.amplitude * 700))
-        //shapeCircle.position = centrePoint
-        //shapeCircle.zPosition = 0
-        //addChild(shapeCircle)
-            
-        //change the particle animations and colours based on the song 
-            //particles.emmitter.advanceSimulationTime(TimeInterval(elapsedTime))
-            //if tracker.amplitude > 0.5 {
-              //  particles.hue = abs(CGFloat(tracker.frequency).remainder(dividingBy: 360)/360)
-            //}
-            //particles.emmitter.particleColor = NSColor(hue: particles.hue, saturation: 0.8, brightness: 0.9, alpha: 0.2)
-            //addChild(particles.emmitter)
-        }
         
         if tracker.amplitude > 0.5 {
             particles.hue = abs(CGFloat(tracker.frequency * 100.0).remainder(dividingBy: 360)/360)

@@ -11,6 +11,24 @@ import SpriteKit
 
 class MenuScene: SKScene {
     
+    //class for all of the menu objects
+    class MenuObjects {
+        //scene to hold the file directory
+        var file : String = ""
+        //declare the play visualizer button
+        var button = SKSpriteNode()
+        //Welcome Title
+        var welcomeTitle = SKLabelNode()
+        //Microphone Label
+        var microphoneLabel = SKLabelNode()
+        //Microphone Button
+        var microButton = SKSpriteNode()
+        //Prechosen Audio Playback label
+        var playBackLabel = SKLabelNode()
+    }
+    
+    var menuObjects = MenuObjects()
+    
     //scene to hold the file directory
     var file : String = ""
     //declare the play visualizer button
