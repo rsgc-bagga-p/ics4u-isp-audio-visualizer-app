@@ -116,6 +116,9 @@ class LiveAnalysis: SKScene {
         if backButton.frame.contains(event.locationInWindow) {
             print("back button pressed.")
             
+            //stop AudioKit
+            AudioKit.stop()
+            
             // Create the menu scene with the same dimensions as the current scene
             let menu = MenuScene(size: self.size)
             

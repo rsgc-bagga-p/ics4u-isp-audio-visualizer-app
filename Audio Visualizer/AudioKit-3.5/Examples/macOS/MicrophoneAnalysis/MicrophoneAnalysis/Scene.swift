@@ -209,7 +209,10 @@ class Scene : SKScene {
             print("back button pressed.")
             
             //pause the music
-            player.stop()
+            player.pause()
+            
+            //stop AudioKit
+            AudioKit.stop()
             
             // Create the live analysis scene with the same dimensions as the current scene
             let menu = MenuScene(size: self.size)
