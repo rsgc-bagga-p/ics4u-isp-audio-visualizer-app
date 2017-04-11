@@ -21,8 +21,6 @@ class MenuScene: SKScene {
     var microphoneLabel = SKLabelNode()
     //Microphone Button
     var microButton = SKSpriteNode()
-    //Add Button 
-    var addButton = SKSpriteNode()
     
     // This method runs once after the scene loads
     override func didMove(to view: SKView) {
@@ -42,13 +40,6 @@ class MenuScene: SKScene {
         microButton.setScale(0.1)
         microButton.zPosition = 200
         self.addChild(microButton)
-        
-        //Choose Music Button
-        addButton = SKSpriteNode(imageNamed: "Image")
-        addButton.position = CGPoint(x: self.size.width - 55, y: self.size.height - 60)
-        addButton.setScale(0.5)
-        addButton.zPosition = 200
-        self.addChild(addButton)
         
         //Welcome Title for Menu
         welcomeTitle = SKLabelNode(fontNamed: "Futura Bold")
@@ -78,37 +69,6 @@ class MenuScene: SKScene {
         // Look for a click on the play button
         //if button.int
         if button.frame.contains(event.locationInWindow) {
-            print("Play button pressed.")
-            // Create the playBack visualizer scene with the same dimensions as the current scene
-            let scene = Scene(size: self.size)
-            scene.fileToAnalyze = file
-            
-            // Configure a transition object to specify the type of animation that handles the move between scenes
-            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
-            
-            // Access the current view and present the new scene
-            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
-            self.view!.presentScene(scene, transition: reveal)
-        }
-        
-       // Look for a click on the microphone button
-        if microButton.frame.contains(event.locationInWindow) {
-            print("Live button pressed.")
-            
-            // Create the live analysis scene with the same dimensions as the current scene
-            let live = LiveAnalysis(size: self.size)
-            
-            // Configure a transition object to specify the type of animation that handles the move between scenes
-            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
-            
-            // Access the current view and present the new scene
-            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
-            self.view!.presentScene(live, transition: reveal)
-        }
-        
-        //Lood for a click on the add button
-        if addButton.frame.contains(event.locationInWindow) {
-            print("Add Button Pressed")
             
             let dialog = NSOpenPanel();
             
@@ -132,7 +92,35 @@ class MenuScene: SKScene {
                 // User clicked on "Cancel"
                 return
             }
-
+            
+            if file != "" {
+            print("Play button pressed.")
+            // Create the playBack visualizer scene with the same dimensions as the current scene
+            let scene = Scene(size: self.size)
+            scene.fileToAnalyze = file
+            
+            // Configure a transition object to specify the type of animation that handles the move between scenes
+            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
+            
+            // Access the current view and present the new scene
+            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
+            self.view!.presentScene(scene, transition: reveal)
+            }
+        }
+        
+       // Look for a click on the microphone button
+        if microButton.frame.contains(event.locationInWindow) {
+            print("Live button pressed.")
+            
+            // Create the live analysis scene with the same dimensions as the current scene
+            let live = LiveAnalysis(size: self.size)
+            
+            // Configure a transition object to specify the type of animation that handles the move between scenes
+            let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
+            
+            // Access the current view and present the new scene
+            // NOTE: We know the current scene has a view object (since the game is running) so it is safe to force-unwrap the optional view property of the current scene
+            self.view!.presentScene(live, transition: reveal)
         }
         
     }
