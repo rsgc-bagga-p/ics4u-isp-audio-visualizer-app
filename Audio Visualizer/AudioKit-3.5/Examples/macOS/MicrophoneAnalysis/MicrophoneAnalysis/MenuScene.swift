@@ -88,14 +88,15 @@ class MenuScene: SKScene {
         //if button.int
         if menuObjects.button.frame.contains(event.locationInWindow) {
             
-            let dialog = NSOpenPanel();
+            let dialog = NSOpenPanel(); //opens finder search
             dialog.title                   = "Choose a .mp3 file";
+            //allows for navigation
             dialog.showsResizeIndicator    = true;
             dialog.showsHiddenFiles        = false;
             dialog.canChooseDirectories    = true;
             dialog.canCreateDirectories    = true;
             dialog.allowsMultipleSelection = false;
-            dialog.allowedFileTypes        = ["mp3"];
+            dialog.allowedFileTypes        = ["mp3"]; // the file type alloed
             
             if (dialog.runModal() == NSModalResponseOK) {
                 
@@ -103,17 +104,17 @@ class MenuScene: SKScene {
                     print(result.path)
                     print(result.lastPathComponent)
                     print(result.pathComponents)
-                    menuObjects.file = result.lastPathComponent
+                    menuObjects.file = result.lastPathComponent //load the file name into the file variable
                 }
             } else {
                 // User clicked on "Cancel"
                 return
             }
-            if menuObjects.file != "" {
+            if menuObjects.file != "" { //if the file has something then...
             print("Play button pressed.")
             // Create the playBack visualizer scene with the same dimensions as the current scene
             let scene = Scene(size: self.size)
-            scene.fileToAnalyze = menuObjects.file
+            scene.fileToAnalyze = menuObjects.file //the file name is saved into the other scene
             
             // Configure a transition object to specify the type of animation that handles the move between scenes
             let reveal = SKTransition.doorsCloseHorizontal(withDuration: 0.2)
