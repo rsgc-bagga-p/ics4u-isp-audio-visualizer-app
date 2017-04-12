@@ -102,10 +102,18 @@ My biggest challenge in completing this ISP will be to manage my time. I have ma
 
 1. When the app is first launched the it will ask the user if they want to analyze the music live through the microphone or through their music library (songs in their documents folder).
 
+![Welcome Screen](https://github.com/rsgc-bagga-p/ics4u-isp-audio-visualizer-app/blob/master/Screen%20Shot%202017-04-11%20at%209.36.35%20PM.png?raw=true)
+
 2. If Library option is chosen, it will open a finder search and users can pick their music from files.
+
+![File Chooser](https://github.com/rsgc-bagga-p/ics4u-isp-audio-visualizer-app/blob/master/Screen%20Shot%202017-04-11%20at%209.42.59%20PM.png?raw=true)
 
 3. Then the visualizer will start up and to quit, users can press the back button.
 
+![Visualizer](https://github.com/rsgc-bagga-p/ics4u-isp-audio-visualizer-app/blob/master/Screen%20Shot%202017-04-11%20at%209.43.36%20PM.png?raw=true)
+
 4. If the live analysis is chosen, users will be taken to show the live analysis which is also using particle systems
+
+![Visualizer](https://github.com/rsgc-bagga-p/ics4u-isp-audio-visualizer-app/blob/master/Screen%20Shot%202017-04-11%20at%209.43.52%20PM.png?raw=true)
 
 ### The project while seems less complicated was still a good learning experience and actually very complicated. Especially with making particle systems. But you know what people sometimes say, sometimes the best is the most simple.
