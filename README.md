@@ -98,4 +98,14 @@ My biggest challenge in completing this ISP will be to manage my time. I have ma
 
 ### UPDATE...
 
-The program now uses particle systems to display the visualizers instead of fractals. The user interface remains the same as before.
+### The program now uses particle systems to display the visualizers instead of fractals. The user interface remains the same as before. The paricle emmission angle, rates and colour are all effected by the amplitude and frequency of the song. Songs can also be chosen through the finder search. 
+
+1. When the app is first launched the it will ask the user if they want to analyze the music live through the microphone or through their music library (songs in their documents folder).
+
+2. If Library option is chosen, it will open a finder search and users can pick their music from files.
+
+3. Then the visualizer will start up and to quit, users can press the back button.
+
+4. If the live analysis is chosen, users will be taken to show the live analysis which is also using particle systems
+
+### The project while seems less complicated was still a good learning experience and actually very complicated. Especially with making particle systems. But you know what people sometimes say, sometimes the best is the most simple.
