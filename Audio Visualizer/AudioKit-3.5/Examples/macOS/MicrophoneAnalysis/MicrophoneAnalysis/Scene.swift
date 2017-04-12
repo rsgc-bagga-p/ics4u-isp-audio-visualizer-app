@@ -14,6 +14,7 @@ class Scene : SKScene { //Scene class declared
     
     public var fileToAnalyze : String = ""
     
+    //particle variable struct
     class Particles {
         let particleType = SKTexture(imageNamed: "spark")
         let emmitter = SKEmitterNode()
